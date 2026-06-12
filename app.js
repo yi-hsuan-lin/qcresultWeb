@@ -1043,15 +1043,21 @@ window.onload = () => {
     setupSorting(); 
     updateSortIcons(); 
     
+    // 1. 精準抓取今天的在地時間 (防範時區時差)
     const today = new Date();
     const offset = today.getTimezoneOffset() * 60000;
     const localDateStr = (new Date(today - offset)).toISOString().split('T')[0];
+    // 2. 萃取當前的年份與月份
+    const currentYear = localDateStr.substring(0, 4);  // "2026"
+    const currentMonth = localDateStr.substring(5, 7); // "06"
     
+    // 3. 核心自動化：動態把下拉選單切換到今天的年月！
+    document.getElementById('yearSelect').value = currentYear;
+    document.getElementById('monthSelect').value = currentMonth;
+    
+    // 4. 初始化清除進階日期的篩選框，並開始撈資料
     document.getElementById('dateFilter').value = '';
-    document.getElementById('yearSelect').value = localDateStr.substring(0, 4);
-    document.getElementById('monthSelect').value = localDateStr.substring(5, 7);
-    
-    fetchDashboardData(); 
+    fetchDashboardData();
 };
 // ============================================================================
 // 🌟 新增：24小時戰情爆發圖邏輯 (支援 Stacked Bar 堆疊圖)
