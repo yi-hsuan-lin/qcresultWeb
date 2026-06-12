@@ -634,10 +634,12 @@ function updateCharts(data) {
                     const index = elements[0].index;
                     const label = chart.data.labels[index]; 
                     
-                    const match = label.match(/^(.*?)\((.*?)\)$/);
+                    // 🌟 核心修正：改用更嚴格的 Regex，強迫從字串「最尾端」倒回去抓最後一個括弧！
+                    // 這樣就能完美把 "金門(東)" 當作名字，"C2W03" 當作 ID 拆開！
+                    const match = label.match(/^(.*)\(([^)]+)\)$/);
                     if (match) {
-                        const stName = match[1];
-                        const stID = match[2];
+                        const stName = match[1];  // ➔ 拿到漂亮的 "金門(東)"
+                        const stID = match[2];    // ➔ 拿到純淨的 "C2W03"
                         
                         let radioId = '未知模組';
                         if (masterJsonData && masterJsonData.records) {
