@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QC 異常觀測資料儀表板</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2 style="margin: 0;">📊 QC 異常觀測儀表板</h2>
+            
+            <div class="filter-row">
+                <label style="font-weight: bold;">📁 載入資料庫：</label>
+                <select id="yearSelect">
+                    <option value="2025">2025 年</option>
+                    <option value="2026" selected>2026 年</option>
+                    <option value="2027">2027 年</option>
+                </select>
+                <select id="monthSelect">
+                    <option value="01">01 月</option>
+                    <option value="02">02 月</option>
+                    <option value="03">03 月</option>
+                    <option value="04">04 月</option>
+                    <option value="05">05 月</option>
+                    <option value="06" selected>06 月</option>
+                    <option value="07">07 月</option>
+                    <option value="08">08 月</option>
+                    <option value="09">09 月</option>
+                    <option value="10">10 月</option>
+                    <option value="11">11 月</option>
+                    <option value="12">12 月</option>
+                </select>
+                <span id="currentFileText" style="margin-left: 10px; font-size: 0.9em; color: #d0e1f9;"></span>
+                
+                <div class="view-toggle">
+                    <button id="btnTableView" class="view-btn active">📝 表格模式</button>
+                    <button id="btnChartView" class="view-btn">📊 圖表模式</button>
+                </div>
+            </div>
+
+            <div class="filter-row">
+                <label style="font-weight: bold;">🔍 進階篩選：</label>
+                <input type="text" id="searchInput" list="stationHintList" class="search-input" placeholder="可選單挑選或搜尋測站/單位">
+                <datalist id="stationHintList"></datalist>
+
+                <input type="date" id="dateFilter" title="選擇特定日期">
+                <select id="levelFilter">
+                    <option value="ALL">全部等級</option>
+                    <option value="B">B 級</option>
+                    <option value="C">C 級</option>
+                </select>
+                <select id="itemFilter">
+                    <option value="ALL">全部項目</option>
+                    <option value="RAIN">雨量 (RAIN)</option>
+                    <option value="Temp">溫度 (Temp)</option>
+                    <option value="RH">濕度 (RH)</option>
+                    <option value="Pres">氣壓 (Pres)</option>
+                    <option value="WS">風速 (WS)</option>
+                    <option value="WD">風向 (WD)</option>
+                    <option value="GWD">陣風風向 (GWD)</option>
+                    <option value="GWS">陣風風速 (GWS)</option>
+                </select>
+                <input type="text" id="methodFilter" class="search-input" placeholder="未通過檢核 (如: 合理範圍)">
+                <button id="btnClearFilters" class="action-btn" style="margin-left: auto; background-color: #f8d7da; color: #721c24; border-color: #f5c6cb;">🧹 清除篩選</button>
+            </div>
+        </div>
+
+        <div class="kpi-row">
+            <div class="kpi-card kpi-info clickable-card" onclick="openHourlyChartModal()">
+                <div class="kpi-title" id="kpiTitle1">🚨 本日累計異常測站數</div>
+                <div class="kpi-value" id="kpiTodayCount">0</div>
+                <div class="kpi-sub" id="kpiTodaySub">-- 月 -- 日 (佔 --%)</div>
+            </div>
+            <div class="kpi-card kpi-primary clickable-card" onclick="openMonthHeatmapModal()">
+                <div class="kpi-title" id="kpiTitle2">
+                    📅 本月累計異常 <span class="card-hint">👆 點擊看熱力圖</span>
+                </div>
+                <div class="kpi-value" id="kpiMonthCount">0</div>
+                <div class="kpi-sub" id="kpiMonthSub">全月活躍佔比 --%</div>
+            </div>
+            <div class="kpi-card kpi-warning clickable-card" onclick="clickKpiCard('B')">
+                <div class="kpi-title" id="kpiTitle3">
+                    🏆 本日焦點關注 (B級) <span class="card-hint">👆 點擊看履歷</span>
+                </div>
+                <div class="kpi-value" id="kpiWorstStationB" style="font-size: 20px; line-height: 38px;">無資料</div>
+                <div class="kpi-sub" id="kpiWorstCountB">共發生 0 次異常</div>
+            </div>
+            <div class="kpi-card kpi-danger clickable-card" onclick="clickKpiCard('C')">
+                <div class="kpi-title" id="kpiTitle4">
+                    🔴 本日焦點關注 (C級) <span class="card-hint">👆 點擊看履歷</span>
+                </div>
+                <div class="kpi-value" id="kpiWorstStationC" style="font-size: 20px; line-height: 38px;">無資料</div>
+                <div class="kpi-sub" id="kpiWorstCountC">共發生 0 次異常</div>
+            </div>
+        </div>
+
+        <div class="charts-row" id="chartsArea">
+            <div class="chart-container chart-pie">
+                <canvas id="itemPieChart"></canvas>
+            </div>
+            <div class="chart-container chart-bar">
+                <canvas id="stationBarChart"></canvas>
+            </div>
+        </div>
+
+        <div id="tableArea">
+            <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 10px;">
+                <span style="margin-right: auto; font-size: 14px; color: #0056b3; font-weight: bold;">
+                    💡 提示：點擊上方卡片或下方表格任一列，即可展開專屬進階分析！
+                </span>
+                <button id="btnExpandAll" class="action-btn" style="border: 1px solid #ccc;">➕ 全部展開</button>
+                <button id="btnCollapseAll" class="action-btn" style="border: 1px solid #ccc;">➖ 全部縮起</button>
+            </div>
+
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th class="nowrap" data-sort="ID">測站 ID <span class="sort-icon">↕</span></th>
+                        <th class="nowrap" data-sort="StationName">測站名稱 <span class="sort-icon">↕</span></th>
+                        <th style="width: 6%; min-width: 60px;" data-sort="Radio_id">無線電站碼 <span class="sort-icon">↕</span></th>
+                        <th class="nowrap" data-sort="Owner">所屬單位 <span class="sort-icon">↕</span></th>
+                        <th class="nowrap" data-sort="ObsTime">觀測時間 <span class="sort-icon">↕</span></th>
+                        <th class="nowrap" data-sort="ObsItem">異常項目 <span class="sort-icon">↕</span></th>
+                        <th class="nowrap" data-sort="Obsvalue">觀測值 <span class="sort-icon">↕</span></th>
+                        <th class="nowrap" data-sort="QC_Level">檢核結果 <span class="sort-icon">↕</span></th>
+                        <th class="nowrap" data-sort="Confidence_Level">檢核等級 <span class="sort-icon">↕</span></th>
+                        <th style="width: 15%; min-width: 120px;" data-sort="QC_Method">未通過檢核 <span class="sort-icon">↕</span></th>
+                        <th style="width: 25%; min-width: 180px;" data-sort="QC_Reason">說明 <span class="sort-icon">↕</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="11" style="text-align: center;">載入資料中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="stationModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeStationModal()">&times;</span>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e9ecef; padding-bottom: 10px; margin-top: 0;">
+                <h3 id="modalStationTitle" style="margin: 0; font-size: 22px; color: #333;">測站履歷</h3>
+                <div style="display: flex; align-items: center; gap: 10px; margin-right: 30px;">
+                    <label style="font-size: 14px; font-weight: bold; color: #555;">切換觀測項目：</label>
+                    <select id="modalItemSelect" style="padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc; font-size: 14px; outline: none; cursor: pointer;"></select>
+                </div>
+            </div>
+
+            <div class="modal-summary">
+                <div class="modal-summary-box b-level">
+                    <div style="font-size: 13px; font-weight: bold;">本月 B 級異常累計</div>
+                    <div id="modalCountB" style="font-size: 24px; font-weight: 800;">0 次</div>
+                </div>
+                <div class="modal-summary-box c-level">
+                    <div style="font-size: 13px; font-weight: bold;">本月 C 級異常累計</div>
+                    <div id="modalCountC" style="font-size: 24px; font-weight: 800;">0 次</div>
+                </div>
+            </div>
+            <div style="height: 350px; width: 100%; margin-top: 20px;">
+                <canvas id="modalTrendChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div id="hourlyChartModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 850px;">
+            <span class="modal-close" onclick="closeHourlyChartModal()">&times;</span>
+            <h3 id="hourlyChartTitle" style="margin-top: 0; font-size: 22px; color: #333; border-bottom: 2px solid #e9ecef; padding-bottom: 10px;">
+                ⏱️ 24 小時戰情爆發分佈圖
+            </h3>
+            <div style="height: 380px; width: 100%; margin-top: 20px;">
+                <canvas id="hourlyBarChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div id="monthHeatmapModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 700px;">
+            <span class="modal-close" onclick="closeMonthHeatmapModal()">&times;</span>
+            <h3 id="heatmapTitle" style="margin-top: 0; font-size: 22px; color: #333; border-bottom: 2px solid #e9ecef; padding-bottom: 10px;">
+                📅 本月全網健康度熱力日曆
+            </h3>
+            <div id="heatmapGrid" class="heatmap-grid"></div>
+            <div class="heatmap-legend">
+                <span>圖例：</span>
+                <div class="legend-box level-0"></div> <span>0 站</span>
+                <div class="legend-box level-1"></div> <span>1~50 站</span>
+                <div class="legend-box level-2"></div> <span>51~150 站</span>
+                <div class="legend-box level-3"></div> <span>151 站以上</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="heatmapTooltip" class="heatmap-tooltip"></div>
+
+
+    <script src="app.js" defer></script>
+</body>
+</html>
