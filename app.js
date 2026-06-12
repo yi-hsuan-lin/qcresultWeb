@@ -57,23 +57,7 @@ async function loadStationNames() {
     }
 }
 
-function populateStationDatalist() {
-    if (!masterJsonData || !masterJsonData.records) return;
-    const dataList = document.getElementById('stationHintList');
-    dataList.innerHTML = '';
-    
-    const uniqueNames = new Set();
-    masterJsonData.records.forEach(r => {
-        const name = stationNameMap[r.ID] || r.ID;
-        uniqueNames.add(name);
-    });
 
-    uniqueNames.forEach(name => {
-        const option = document.createElement('option');
-        option.value = name;
-        dataList.appendChild(option);
-    });
-}
 
 async function fetchDashboardData() {
     const tbody = document.querySelector('#dataTable tbody');
@@ -104,7 +88,6 @@ async function fetchDashboardData() {
         
         masterJsonData = await response.json();
         
-        populateStationDatalist();
         // 🌟 智慧對帳：抓出基礎 JSON 對照表裡面沒有的漏網之魚
         if (masterJsonData && masterJsonData.records) {
             const missingStations = new Set();
@@ -1015,8 +998,8 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
         masterJsonData.records.forEach(r => {
             // 🌟 因為現在對照檔結構變了，要從 .name 和 .owner 拿資料
             const stInfo = stationNameMap[r.ID] || { name: r.ID, owner: "未知單位" };
-            const name = stInfo.name;
-            const owner = stInfo.owner;
+            const name = stInfo.name;   // ➔ 確保是純字串站名
+            const owner = stInfo.owner; // ➔ 確保是純字串單位
             const id = r.ID.toLowerCase();
 
             if (name.toLowerCase().includes(keyword) || id.includes(keyword) || owner.toLowerCase().includes(keyword)) {
