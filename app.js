@@ -328,7 +328,8 @@ function openMonthHeatmapModal() {
         dailyStats[d].items[item] = (dailyStats[d].items[item] || 0) + 1;
 
         // 🌟 升級：紀錄每站當天發生了幾次，以及是「哪些項目」壞掉
-        const stKey = `${stationNameMap[r.ID] || r.ID} (${r.ID})`;
+        const stInfo = stationNameMap[r.ID] || { name: r.ID, owner: "未知單位" };
+        const stKey = `${stInfo.name} (${r.ID})`;
         if (!dailyStats[d].stationDetails[stKey]) {
             dailyStats[d].stationDetails[stKey] = { count: 0, itemTally: {} };
         }
