@@ -40,7 +40,7 @@ btnChartView.addEventListener('click', () => {
 
 async function loadStationNames() {
     try {
-        const response = await fetch(`202606110000.json?t=${new Date().getTime()}`, { cache: "no-store" });
+        const response = await fetch(`station.json?t=${new Date().getTime()}`, { cache: "no-store" });
         const data = await response.json();
         const stids = data.stids || {};
         stationNameMap = {};
@@ -105,6 +105,29 @@ async function fetchDashboardData() {
         masterJsonData = await response.json();
         
         populateStationDatalist();
+        // 🌟 智慧對帳：抓出基礎 JSON 對照表裡面沒有的漏網之魚
+        if (masterJsonData && masterJsonData.records) {
+            const missingStations = new Set();
+            
+            masterJsonData.records.forEach(r => {
+                // 如果異常紀錄裡的 ID，在我們的 stationNameMap 字典裡找不到，就是漏掉的站！
+                if (r.ID && !stationNameMap[r.ID]) {
+                    missingStations.add(r.ID);
+                }
+            });
+            
+            // 把結果漂亮地印在瀏覽器的 F12 Console 裡
+            console.log("%c=== 🔍 基礎對照表不完整測站檢查 ===", "color: #ffc107; font-weight: bold; font-size: 14px;");
+            if (missingStations.size > 0) {
+                console.warn(`🚨 警告：發現有 ${missingStations.size} 個測站存在於異常紀錄中，但不在對照表 JSON 裡！`);
+                console.log("📋 缺失的測站 ID 清單如下（請複製去補齊 JSON）：");
+                console.log(Array.from(missingStations).sort());
+            } else {
+                console.log("✅ 恭喜！目前的基礎對照表非常完整，沒有遺漏任何測站！");
+            }
+            console.log("=====================================");
+        }
+
         calculateStaticKPIs(); 
         applyFilters(); 
 
