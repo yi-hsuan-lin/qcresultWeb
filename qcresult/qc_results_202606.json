@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 13607,
+        "total_abnormal_records": 13610,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-14 20:57:02"
+        "generated_at": "2026-06-14 21:07:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -163342,6 +163342,42 @@
             "Confidence_Level": "C",
             "QC_Method": "物理性",
             "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "C0G82",
+            "ObsTime": "2026-06-14T20:50:00+08:00",
+            "met_date": "2026-06-14",
+            "ObsItem": "RH",
+            "Obsvalue": 97.0,
+            "Radio_id": "KS",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAB02",
+            "ObsTime": "2026-06-14T20:50:00+08:00",
+            "met_date": "2026-06-14",
+            "ObsItem": "RH",
+            "Obsvalue": 93.0,
+            "Radio_id": "G46",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "12Q97",
+            "ObsTime": "2026-06-14T20:50:00+08:00",
+            "met_date": "2026-06-14",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=9.5, 60min=48.5",
+            "Radio_id": "F40",
+            "QC_Level": "0,62",
+            "Confidence_Level": "B",
+            "QC_Method": "R10通過、R60未通過檢核(累積於後)",
+            "QC_Reason": "R10通過、R60未通過檢核(累積於後)"
         }
     ]
 }
