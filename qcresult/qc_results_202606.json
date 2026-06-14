@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 13665,
+        "total_abnormal_records": 13666,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-14 22:27:01"
+        "generated_at": "2026-06-14 22:37:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -164038,6 +164038,18 @@
             "Confidence_Level": "B",
             "QC_Method": "R10通過、R60未通過檢核(零雨量)",
             "QC_Reason": "R10通過、R60未通過檢核(零雨量)"
+        },
+        {
+            "ID": "46789",
+            "ObsTime": "2026-06-14T22:20:00+08:00",
+            "met_date": "2026-06-14",
+            "ObsItem": "RH",
+            "Obsvalue": 99.0,
+            "Radio_id": "D82",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
         }
     ]
 }
