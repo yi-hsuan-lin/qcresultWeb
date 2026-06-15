@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 14426,
+        "total_abnormal_records": 14430,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-15 18:07:01"
+        "generated_at": "2026-06-15 18:17:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -173173,6 +173173,54 @@
             "Confidence_Level": "B",
             "QC_Method": "R10通過、R60未通過檢核(零雨量)",
             "QC_Reason": "R10通過、R60未通過檢核(零雨量)"
+        },
+        {
+            "ID": "46789",
+            "ObsTime": "2026-06-15T18:00:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "D82",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0F9M",
+            "ObsTime": "2026-06-15T18:00:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 73.0,
+            "Radio_id": "I5",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAG05",
+            "ObsTime": "2026-06-15T18:00:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 86.0,
+            "Radio_id": "G18",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAQ03",
+            "ObsTime": "2026-06-15T18:00:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 99.0,
+            "Radio_id": "F65",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
         }
     ]
 }
