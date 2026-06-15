@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 14145,
+        "total_abnormal_records": 14151,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-15 11:27:01"
+        "generated_at": "2026-06-15 11:37:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -169801,6 +169801,78 @@
             "Confidence_Level": "B",
             "QC_Method": "R10通過、R60未通過檢核(零雨量)",
             "QC_Reason": "R10通過、R60未通過檢核(零雨量)"
+        },
+        {
+            "ID": "46755",
+            "ObsTime": "2026-06-15T11:20:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "C14",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46789",
+            "ObsTime": "2026-06-15T11:20:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "D82",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0B06",
+            "ObsTime": "2026-06-15T11:20:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 85.0,
+            "Radio_id": "N7",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0F9V",
+            "ObsTime": "2026-06-15T11:20:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "QX",
+            "QC_Level": "-99",
+            "Confidence_Level": "C",
+            "QC_Method": "無觀測資料",
+            "QC_Reason": "無觀測資料"
+        },
+        {
+            "ID": "C0G81",
+            "ObsTime": "2026-06-15T11:20:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RH",
+            "Obsvalue": 92.0,
+            "Radio_id": "KR",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "81V84",
+            "ObsTime": "2026-06-15T11:20:00+08:00",
+            "met_date": "2026-06-15",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.5, 60min=44.0",
+            "Radio_id": "S3B",
+            "QC_Level": "0,62",
+            "Confidence_Level": "B",
+            "QC_Method": "R10通過、R60未通過檢核(累積於後)",
+            "QC_Reason": "R10通過、R60未通過檢核(累積於後)"
         }
     ]
 }
