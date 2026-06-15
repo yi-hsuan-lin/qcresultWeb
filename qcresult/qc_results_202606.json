@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 14872,
+        "total_abnormal_records": 14873,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-16 03:07:02"
+        "generated_at": "2026-06-16 03:17:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -178520,6 +178520,18 @@
         {
             "ID": "C0V66",
             "ObsTime": "2026-06-16T02:50:00+08:00",
+            "met_date": "2026-06-16",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-16T03:00:00+08:00",
             "met_date": "2026-06-16",
             "ObsItem": "RH",
             "Obsvalue": 0.0,
