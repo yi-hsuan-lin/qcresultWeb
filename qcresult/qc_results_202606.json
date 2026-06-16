@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 15372,
+        "total_abnormal_records": 15373,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-16 16:23:16"
+        "generated_at": "2026-06-16 16:27:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -184528,6 +184528,18 @@
             "Confidence_Level": "B",
             "QC_Method": "R10未通過克利金檢核(估計誤差累積機率超出99.95%)累積於後個案",
             "QC_Reason": "R10未通過克利金檢核(估計誤差累積機率超出99.95%)累積於後個案；R60通過檢核"
+        },
+        {
+            "ID": "A1AA8",
+            "ObsTime": "2026-06-16T16:10:00+08:00",
+            "met_date": "2026-06-16",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "T0H",
+            "QC_Level": "0,31,31,31",
+            "Confidence_Level": "C",
+            "QC_Method": "R10未通過克利金檢核(估計誤差累積機率超出99.95%)零雨量個案；R60未通過檢核(零雨量)",
+            "QC_Reason": "R10未通過克利金檢核(估計誤差累積機率超出99.95%)零雨量個案；R60未通過檢核(零雨量)"
         }
     ]
 }
