@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QC 異常觀測資料儀表板</title>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <div class="header">
-            <h2 style="margin: 0;">📊 QC 異常觀測儀表板</h2>
+            <h2 style="margin: 0;">
+                <a href="index.html" style="text-decoration: none; color: inherit; cursor: pointer;" title="回首頁並清除篩選">
+                    📊 QC 異常觀測儀表板
+                </a>
+            </h2>
             
             <div class="filter-row">
                 <label style="font-weight: bold;">📁 載入檢核檔案：</label>
@@ -114,11 +118,17 @@
 
         <div class="charts-row" id="chartsArea">
             <div class="chart-container chart-pie">
-                <canvas id="itemPieChart"></canvas>
+                <div style="position: relative; height: 350px; width: 100%;">
+                    <canvas id="itemPieChart"></canvas>
+                </div>
             </div>
+
             <div class="chart-container chart-bar">
-                <canvas id="stationBarChart"></canvas>
+                <div style="position: relative; height: 350px; width: 100%;">
+                    <canvas id="stationBarChart"></canvas>
+                </div>
             </div>
+            
         </div>
 
         <div id="tableArea">
@@ -178,7 +188,10 @@
                     <div id="modalCountC" style="font-size: 24px; font-weight: 800;">0 次</div>
                 </div>
             </div>
-            <div style="height: 350px; width: 100%; margin-top: 20px;">
+            <div style="height: 400px; width: 100%; margin-top: 20px;">
+                <button onclick="downloadChart('modalTrendChart', '測站履歷趨勢圖')" style="margin-bottom: 10px; cursor: pointer; padding: 6px 12px; border-radius: 4px; border: 1px solid #ced4da; background: #e9ecef; font-weight: bold; color: #495057;">
+                    ⬇️ 下載圖表 (PNG)
+                </button>
                 <canvas id="modalTrendChart"></canvas>
             </div>
         </div>
@@ -190,7 +203,10 @@
             <h3 id="hourlyChartTitle" style="margin-top: 0; font-size: 22px; color: #333; border-bottom: 2px solid #e9ecef; padding-bottom: 10px;">
                 ⏱️ 24 小時戰情爆發分佈圖
             </h3>
-            <div style="height: 380px; width: 100%; margin-top: 20px;">
+            <div style="height: 420px; width: 100%; margin-top: 20px;">
+                <button onclick="downloadChart('hourlyBarChart', '24小時作息圖')" style="margin-bottom: 10px; cursor: pointer; padding: 6px 12px; border-radius: 4px; border: 1px solid #ced4da; background: #e9ecef; font-weight: bold; color: #495057;">
+                    ⬇️ 下載圖表 (PNG)
+                </button>
                 <canvas id="hourlyBarChart"></canvas>
             </div>
         </div>
