@@ -266,3 +266,17 @@ tr:nth-child(even):not(.group-header) { background-color: #f8f9fa; }
     pointer-events: none; /* 讓滑鼠不會卡在提示框上 */
     white-space: nowrap;
 }
+/* 讓開關與標籤水平對齊 */
+.filter-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* 開關與文字的間距 */
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.filter-item label {
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}

@@ -14,6 +14,12 @@ let currentWorstB_Info = null;
 let currentWorstC_Info = null;
 
 let filterTimeout = null;
+
+// 全域變數，用來存放熱力圖專用的過濾後數據
+let currentHeatmapData = {}; 
+
+let hourlyBarChartInstance = null;
+
 function debounceApplyFilters() {
     if (filterTimeout) clearTimeout(filterTimeout);
     filterTimeout = setTimeout(() => { applyFilters(); }, 300); 
@@ -49,7 +55,8 @@ async function loadStationNames() {
             // 🌟 讓大腦不僅記住長名稱，也同時記住 owner 單位
             stationNameMap[shortID] = {
                 name: info.long_name || info.name || "未知新站",
-                owner: info.owner || "未知單位"
+                owner: info.owner || "未知單位",
+                publish: info.publish !== undefined ? info.publish : 0 // 如果沒寫預設為 0
             };
         }
     } catch (e) {
@@ -128,6 +135,14 @@ async function fetchDashboardData() {
         currentWorstC_Info = null;
     }
 }
+// 1. 取得開關 DOM 元素
+const publishToggle = document.getElementById('publishToggle');
+
+// 2. 當開關狀態改變時，觸發你專案專屬的過濾函數
+if (publishToggle) {
+    publishToggle.addEventListener('change', applyFilters);
+}
+
 
 function calculateStaticKPIs() {
     if (!masterJsonData || !masterJsonData.records || masterJsonData.records.length === 0) {
@@ -281,11 +296,15 @@ function openMonthHeatmapModal() {
     const isCurrentMonth = (selectedYear === realYear && selectedMonth === realMonth);
 
     const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
+
+    // 🌟 【關鍵修改】改用全域的乾淨資料，如果沒有就退回使用原始資料
+    const targetRecordsForHeatmap = window.currentFilteredRecords || masterJsonData.records;
+
     let firstDayOfWeek = new Date(selectedYear, selectedMonth - 1, 1).getDay();
     let emptyPrefix = firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1; 
 
     const dailyStats = {};
-    masterJsonData.records.forEach(r => {
+    targetRecordsForHeatmap.forEach(r => {
         const d = r.met_date;
         if (!d) return;
         
@@ -435,6 +454,30 @@ function openMonthHeatmapModal() {
     document.getElementById('monthHeatmapModal').style.display = 'flex';
 }
 
+
+
+// 📅 計算熱力圖每日異常站數
+function updateHeatmapData(filteredData) {
+    const dailyStationCount = {};
+
+    // 1. 遍歷過濾後的資料，把同一天的測站 ID 塞進 Set (自動去除重複)
+    filteredData.forEach(record => {
+        const date = record.met_date;
+        if (!date) return;
+        
+        if (!dailyStationCount[date]) {
+            dailyStationCount[date] = new Set();
+        }
+        dailyStationCount[date].add(record.ID);
+    });
+
+    // 2. 將 Set 轉換為數字，得到 { "2026-06-01": 15, "2026-06-02": 8 ... } 這樣的格式
+    currentHeatmapData = {};
+    for (const date in dailyStationCount) {
+        currentHeatmapData[date] = dailyStationCount[date].size;
+    }
+}
+
 function closeMonthHeatmapModal() {
     document.getElementById('monthHeatmapModal').style.display = 'none';
     hideHeatmapTooltip(); 
@@ -473,26 +516,33 @@ function applyFilters() {
     const selectedItem = document.getElementById('itemFilter').value;
     const methodKeyword = document.getElementById('methodFilter').value.trim().toLowerCase(); 
 
-    // 🌟 智慧萃取：如果使用者是點擊選單 (格式為: 站名 (ID - 模組))，把括號裡的 ID 抓出來！
+    // 🌟 智慧萃取：如果使用者是點擊選單
     let exactSearchId = null;
-    const match = keyword.match(/\((.*?)\s*-/); // 抓取左括號到減號之間的東西
+    const match = keyword.match(/\((.*?)\s*-/); 
     if (match) {
         exactSearchId = match[1].trim().toLowerCase();
     }
 
+    // 🌟 取得開關目前的狀態 (true 代表只要看已上架的)
+    const onlyShowPublished = publishToggle ? publishToggle.checked : true;
+
     let filteredData = masterJsonData.records.filter(record => {
-        // 🌟 智慧注入：把對照檔的名稱跟所屬單位，一起塞進每一筆異常紀錄裡！
-        const stInfo = stationNameMap[record.ID] || { name: record.ID, owner: "未知單位" };
+        // 🌟 智慧注入：把對照檔的名稱、所屬單位跟「上架狀態」，一起讀出來！
+        const stInfo = stationNameMap[record.ID] || { name: record.ID, owner: "未知單位", publish: 0 };
         record.StationName = stInfo.name;
-        record.Owner = stInfo.owner; // 這樣就能支援點擊欄位排序了！
+        record.Owner = stInfo.owner; 
+
+        // 🌟 【關鍵修正】現在是去 stInfo 裡面檢查 publish！
+        // 如果開關有開 (只要看上架)，且這個站的 publish 為 0，就剃除！
+        if (onlyShowPublished && (stInfo.publish === 0 || stInfo.publish === "0" || stInfo.publish === false)) {
+            return false;
+        }
 
         let passKeyword = true;
         
         if (exactSearchId) {
-            // 🎯 如果有精準萃取到 ID，直接唯一鎖定！同名也不怕！
             passKeyword = (record.ID.toLowerCase() === exactSearchId);
         } else if (keyword !== '') {
-            // 否則就做一般的部分比對
             passKeyword = (record.ID.toLowerCase().includes(keyword)) ||
                           (record.StationName.toLowerCase().includes(keyword)) ||
                           (record.Radio_id && record.Radio_id.toLowerCase().includes(keyword));
@@ -508,6 +558,7 @@ function applyFilters() {
         return passKeyword && passDate && passLevel && passItem && passMethod;
     });
 
+    // ▼▼▼ 以下是你原有的排序邏輯 ▼▼▼
     if (currentSortCol) {
         filteredData.sort((a, b) => {
             let valA = a[currentSortCol] ?? '';
@@ -523,8 +574,15 @@ function applyFilters() {
         });
     }
 
+    window.currentFilteredRecords = filteredData; // 🌟 【新增這行】將過濾好的乾淨資料，存放到全域變數中，供所有彈出視窗使用！
+
+    
+    updateKPICards(filteredData); // 🌟 在重新繪製表格和圖表之前，先把熱騰騰過濾好的資料餵給 KPI 卡片！
+    updateHeatmapData(filteredData); // 🌟 新增這一行：更新熱力圖的數據大腦
+
     updateCharts(filteredData);
     renderTable(filteredData, (keyword !== '' || selectedDate !== '' || selectedLevel !== 'ALL' || selectedItem !== 'ALL' || methodKeyword !== ''));
+    updateURLParams(); // 🌟 新增這一行：過濾完成後，順便把狀態寫進網址裡
 }
 
 function animateValue(id, start, end, duration) {
@@ -656,8 +714,11 @@ let currentModalStationRecords = [];
 function openStationModal(stationId, stationName, radioId, targetItem = 'ALL') {
     if (!masterJsonData || !masterJsonData.records) return;
 
+    // 🌟 【關鍵修改】改用乾淨資料
+    const baseRecords = window.currentFilteredRecords || masterJsonData.records;
+
     // 把這個站「這個月所有的異常」先存起來，給切換選單用
-    currentModalStationRecords = masterJsonData.records.filter(r => r.ID === stationId);
+    currentModalStationRecords = baseRecords.filter(r => r.ID === stationId);
     
     // 找出這個站這個月到底壞了「哪些」項目 (利用 Set 自動去重)
     const uniqueItems = new Set();
@@ -949,6 +1010,10 @@ if (btnClear) {
         document.getElementById('levelFilter').value = 'ALL';
         document.getElementById('itemFilter').value = 'ALL';
         document.getElementById('methodFilter').value = '';
+        
+        // 🌟 【新增】將 publish 開關恢復為預設狀態 (打勾)
+        if (publishToggle) publishToggle.checked = true;
+
         applyFilters(); 
     });
 }
@@ -1044,12 +1109,34 @@ window.onload = () => {
     // 4. 初始化清除進階日期的篩選框，並開始撈資料
     document.getElementById('dateFilter').value = '';
     fetchDashboardData();
+
+    // ==========================================
+    // 🌟 5. 新增：讀取網址參數，覆蓋畫面上的預設狀態
+    // ==========================================
+    applyURLParamsToFilters();
+
+    // 🌟 6. 防呆機制：如果網址有指定「特定日期」，自動將頂部的「年月選單」切換過去！
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('date')) {
+        const urlDate = urlParams.get('date'); // 例如 "2026-05-12"
+        if (urlDate && urlDate.length >= 7) {
+            const elYear = document.getElementById('yearSelect');
+            const elMonth = document.getElementById('monthSelect');
+            
+            // 加上保護：確定畫面上有這兩個選單才去改變它們的值
+            if (elYear) elYear.value = urlDate.substring(0, 4);
+            if (elMonth) elMonth.value = urlDate.substring(5, 7);
+        }
+    }
+
+    // ==========================================
+    // 7. 條件全部準備完畢，開始撈資料！
+    // ==========================================
+    fetchDashboardData();
 };
 // ============================================================================
 // 🌟 新增：24小時戰情爆發圖邏輯 (支援 Stacked Bar 堆疊圖)
 // ============================================================================
-let hourlyBarChartInstance = null;
-
 function openHourlyChartModal() {
     if (!masterJsonData || !masterJsonData.records) return;
 
@@ -1063,18 +1150,20 @@ function openHourlyChartModal() {
     const realMonth = parseInt(localDateStr.substring(5, 7));
     
     const isCurrentMonth = (selectedYear === realYear && selectedMonth === realMonth);
+    // 🌟 【關鍵修改】改用乾淨資料
+    const baseRecords = window.currentFilteredRecords || masterJsonData.records;
 
     let targetRecords = [];
     let chartTitle = "";
 
     // 智慧判斷：是看「今天」還是看「整個歷史月」
     if (isCurrentMonth) {
-        const allDates = masterJsonData.records.map(r => r.met_date).filter(d => d);
+        const allDates = baseRecords.map(r => r.met_date).filter(d => d);
         const latestDate = allDates.sort().reverse()[0] || localDateStr; 
-        targetRecords = masterJsonData.records.filter(r => r.met_date === latestDate);
+        targetRecords = baseRecords.filter(r => r.met_date === latestDate);
         chartTitle = `⏱️ ${latestDate} (本日) - 24 小時戰情爆發分佈圖`;
     } else {
-        targetRecords = masterJsonData.records;
+        targetRecords = baseRecords;
         chartTitle = `⏱️ ${selectedYear} 年 ${selectedMonth} 月 - 全月各時段異常加總分佈圖`;
     }
 
@@ -1146,4 +1235,155 @@ function openHourlyChartModal() {
 
 function closeHourlyChartModal() {
     document.getElementById('hourlyChartModal').style.display = 'none';
+}
+// 📊 更新上方 KPI 卡片的函式
+function updateKPICards(filteredData) {
+    // 1. 【本月累計異常】直接計算過濾後資料的總筆數
+    const monthCount = filteredData.length;
+    document.getElementById('kpiMonthCount').innerText = monthCount;
+
+    // 2. 決定「本日」是哪一天：從日期選擇器拿，沒選的話就抓資料裡最新的一天
+    const selectedDate = document.getElementById('dateFilter').value;
+    let targetDate = selectedDate;
+    if (!targetDate && masterJsonData && masterJsonData.records.length > 0) {
+        const dates = masterJsonData.records.map(d => d.met_date).filter(Boolean).sort();
+        targetDate = dates[dates.length - 1]; 
+    }
+
+    // 將資料再縮小範圍到「本日」
+    const todayData = filteredData.filter(d => d.met_date === targetDate);
+
+    // 3. 【本日累計異常測站數】計算不重複的測站 ID 數量
+    const todayUniqueStations = new Set(todayData.map(d => d.ID)).size;
+    document.getElementById('kpiTodayCount').innerText = todayUniqueStations;
+    
+    if (targetDate) {
+        // 更新卡片下方的日期小字
+        document.getElementById('kpiTodaySub').innerText = `${targetDate} (共 ${todayData.length} 筆異常)`;
+    } else {
+        document.getElementById('kpiTodaySub').innerText = '-- 月 -- 日';
+    }
+
+    // 4. 【焦點關注】尋找本日發生最多次異常的測站
+    const findWorstStation = (level) => {
+        // 只抓 B 級或 C 級
+        const levelData = todayData.filter(d => (d.Confidence_Level || '').toUpperCase() === level);
+        if (levelData.length === 0) return { name: '無資料', count: 0 };
+        
+        // 統計每個測站的異常次數
+        const counts = {};
+        levelData.forEach(d => {
+            // 使用測站名稱來統計
+            counts[d.StationName] = (counts[d.StationName] || 0) + 1;
+        });
+        
+        // 找出最大值
+        let worstName = '無資料';
+        let maxCount = 0;
+        for (const [name, count] of Object.entries(counts)) {
+            if (count > maxCount) {
+                maxCount = count;
+                worstName = name;
+            }
+        }
+        return { name: worstName, count: maxCount };
+    };
+
+    // 更新 B 級卡片
+    const worstB = findWorstStation('B');
+    document.getElementById('kpiWorstStationB').innerText = worstB.name;
+    document.getElementById('kpiWorstCountB').innerText = `共發生 ${worstB.count} 次異常`;
+
+    // 更新 C 級卡片
+    const worstC = findWorstStation('C');
+    document.getElementById('kpiWorstStationC').innerText = worstC.name;
+    document.getElementById('kpiWorstCountC').innerText = `共發生 ${worstC.count} 次異常`;
+}
+
+// 🔗 將目前的過濾條件寫入網址
+function updateURLParams() {
+    const url = new URL(window.location);
+    
+    // 讀取目前畫面上的過濾條件 (修正 ID 為 searchInput)
+    const date = document.getElementById('dateFilter').value;
+    const level = document.getElementById('levelFilter').value;
+    const item = document.getElementById('itemFilter').value;
+    const keyword = document.getElementById('searchInput').value; 
+    const publish = document.getElementById('publishToggle').checked;
+
+    // 設定網址參數
+    if (date) url.searchParams.set('date', date);
+    else url.searchParams.delete('date');
+
+    if (level !== 'ALL') url.searchParams.set('level', level);
+    else url.searchParams.delete('level');
+
+    if (item !== 'ALL') url.searchParams.set('item', item);
+    else url.searchParams.delete('item');
+
+    if (keyword) url.searchParams.set('keyword', keyword);
+    else url.searchParams.delete('keyword');
+
+    if (publish) url.searchParams.set('publish', '1');
+    else url.searchParams.delete('publish');
+
+    window.history.replaceState({}, '', url);
+}
+
+// 🔗 網頁載入時，從網址讀取過濾條件並還原畫面 (安全防呆版)
+function applyURLParamsToFilters() {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const elDate = document.getElementById('dateFilter');
+    if (elDate && urlParams.has('date')) elDate.value = urlParams.get('date');
+
+    const elLevel = document.getElementById('levelFilter');
+    if (elLevel && urlParams.has('level')) elLevel.value = urlParams.get('level');
+
+    const elItem = document.getElementById('itemFilter');
+    if (elItem && urlParams.has('item')) elItem.value = urlParams.get('item');
+
+    // (修正 ID 為 searchInput)
+    const elKeyword = document.getElementById('searchInput');
+    if (elKeyword && urlParams.has('keyword')) elKeyword.value = urlParams.get('keyword');
+
+    const elPublish = document.getElementById('publishToggle');
+    if (elPublish && urlParams.has('publish')) {
+        elPublish.checked = (urlParams.get('publish') === '1');
+    }
+}
+
+// 🔗 網頁載入時，從網址讀取過濾條件並還原畫面(安全防呆版)
+function applyURLParamsToFilters() {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // 1. 日期選擇器
+    const elDate = document.getElementById('dateFilter');
+    if (elDate && urlParams.has('date')) {
+        elDate.value = urlParams.get('date');
+    }
+
+    // 2. 等級下拉選單
+    const elLevel = document.getElementById('levelFilter');
+    if (elLevel && urlParams.has('level')) {
+        elLevel.value = urlParams.get('level');
+    }
+
+    // 3. 觀測項目下拉選單
+    const elItem = document.getElementById('itemFilter');
+    if (elItem && urlParams.has('item')) {
+        elItem.value = urlParams.get('item');
+    }
+
+    // 4. 文字搜尋框
+    const elKeyword = document.getElementById('keywordSearch');
+    if (elKeyword && urlParams.has('keyword')) {
+        elKeyword.value = urlParams.get('keyword');
+    }
+
+    // 5. 上架測站開關
+    const elPublish = document.getElementById('publishToggle');
+    if (elPublish && urlParams.has('publish')) {
+        elPublish.checked = (urlParams.get('publish') === '1');
+    }
 }
