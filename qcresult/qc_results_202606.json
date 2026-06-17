@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 16443,
+        "total_abnormal_records": 16447,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-17 21:07:02"
+        "generated_at": "2026-06-17 21:17:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -197972,6 +197972,54 @@
         {
             "ID": "C0V66",
             "ObsTime": "2026-06-17T20:50:00+08:00",
+            "met_date": "2026-06-17",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "C0AH7",
+            "ObsTime": "2026-06-17T21:00:00+08:00",
+            "met_date": "2026-06-17",
+            "ObsItem": "RH",
+            "Obsvalue": 95.0,
+            "Radio_id": "9C",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0FA6",
+            "ObsTime": "2026-06-17T21:00:00+08:00",
+            "met_date": "2026-06-17",
+            "ObsItem": "RH",
+            "Obsvalue": 99.0,
+            "Radio_id": "50",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0G78",
+            "ObsTime": "2026-06-17T21:00:00+08:00",
+            "met_date": "2026-06-17",
+            "ObsItem": "RH",
+            "Obsvalue": 86.0,
+            "Radio_id": "KO",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-17T21:00:00+08:00",
             "met_date": "2026-06-17",
             "ObsItem": "RH",
             "Obsvalue": 0.0,
