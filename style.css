@@ -19,15 +19,41 @@ body {
     border-radius: 5px; 
     margin-bottom: 20px;
 }
+/* 🌟 讓篩選列具備「自動換行」與「統一間距」的神奇功能 */
 .filter-row {
-    margin-top: 15px;
     display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    flex-wrap: wrap;          /* 空間不夠時自動往下折行 */
+    align-items: center;      /* 讓所有元件上下垂直置中對齊 */
+    gap: 12px;                /* 元件之間保持 12px 的舒服間距 */
+    margin-bottom: 15px;
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 5px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    /* 🌟 新增這行：強制這個淺色框框裡的字都是深灰色 */
+    color: #ffffff;
+}
+/* 確保標籤也是白色 */
+.filter-row label {
+    color: #ffffff !important; 
+}
+
+/* 🌟 統一所有輸入框與下拉選單的高度和基礎外觀 */
+.filter-row select, 
+.filter-row input[type="date"], 
+.search-input {
+    padding: 6px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 34px;             /* 強制大家一樣高，排版就不會狗咬狗 */
+    box-sizing: border-box;
+}
+
+/* 讓搜尋框保有彈性，但不會縮到太小 */
+.search-input {
+    min-width: 160px;
+    flex-grow: 1;             /* 空間多餘時稍微伸展 */
+    max-width: 250px;
 }
 select, input[type="text"], input[type="date"] {
     padding: 6px 10px;

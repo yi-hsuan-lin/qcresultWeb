@@ -75,7 +75,7 @@ async function fetchDashboardData() {
     const targetYYYYMM = `${selectedYear}${selectedMonth}`;
     const jsonUrl = `./qcresult/qc_results_${targetYYYYMM}.json`;
     
-    fileText.textContent = `(目前讀取：qc_results_${targetYYYYMM}.json)`;
+    // fileText.textContent = `(目前讀取：qc_results_${targetYYYYMM}.json)`;
     tbody.innerHTML = '<tr><td colspan="10" style="text-align: center;">載入資料中...</td></tr>';
     
     document.getElementById('searchInput').value = '';
@@ -558,6 +558,8 @@ function applyFilters() {
         return passKeyword && passDate && passLevel && passItem && passMethod;
     });
 
+    updateMethodHints(filteredData); // 🌟 核心：根據「過濾後的結果」來動態更新提示清單！
+
     // ▼▼▼ 以下是你原有的排序邏輯 ▼▼▼
     if (currentSortCol) {
         filteredData.sort((a, b) => {
@@ -699,6 +701,31 @@ function updateCharts(data) {
                 y: { beginAtZero: true, ticks: { stepSize: 1 } }
             }
         }
+    });
+}
+
+// 🧩 動態生成「未通過檢核」的提示清單
+function updateMethodHints(data) {
+    const datalist = document.getElementById('methodHintList');
+    if (!datalist) return;
+
+    // 1. 利用 Set 來自動過濾掉重複的檢核原因
+    const uniqueMethods = new Set();
+    data.forEach(record => {
+        if (record.QC_Method) {
+            // 可以根據需求把字串做一點清理，避免前後有空白
+            uniqueMethods.add(record.QC_Method.trim());
+        }
+    });
+
+    // 2. 清空舊的清單
+    datalist.innerHTML = '';
+
+    // 3. 把收集到的原因變成 <option> 塞進清單裡
+    uniqueMethods.forEach(method => {
+        const option = document.createElement('option');
+        option.value = method;
+        datalist.appendChild(option);
     });
 }
 
@@ -1386,4 +1413,65 @@ function applyURLParamsToFilters() {
     if (elPublish && urlParams.has('publish')) {
         elPublish.checked = (urlParams.get('publish') === '1');
     }
+}
+
+// 📥 匯出目前畫面上的過濾結果為 CSV
+function exportToCSV() {
+    // 1. 抓取我們剛剛辛苦建立的「乾淨資料庫」
+    const data = window.currentFilteredRecords;
+    
+    if (!data || data.length === 0) {
+        alert("⚠️ 目前畫面上沒有資料可以匯出喔！");
+        return;
+    }
+
+    // 2. 定義 Excel 標題列
+    const headers = [
+        "測站 ID", "測站名稱", "無線電站碼", "所屬單位", 
+        "觀測時間", "異常項目", "觀測值", "檢核結果", 
+        "檢核等級", "未通過檢核", "說明"
+    ];
+
+    // 3. 處理字串的安全小工具 (防止欄位裡有逗號或引號，導致 Excel 欄位大亂)
+    const escapeCSV = (str) => {
+        if (str === null || str === undefined) return '""';
+        const text = String(str).replace(/"/g, '""'); // 將雙引號轉義
+        return `"${text}"`; // 用雙引號把內容包起來
+    };
+
+    // 4. 將每一筆資料轉成 CSV 格式的一行
+    const csvRows = data.map(record => {
+        return [
+            escapeCSV(record.ID),
+            escapeCSV(record.StationName),
+            escapeCSV(record.Radio_id),
+            escapeCSV(record.Owner),
+            escapeCSV(record.ObsTime),
+            escapeCSV(record.ObsItem),
+            escapeCSV(record.Obsvalue),
+            escapeCSV(record.QC_Level), // 若你有存 Raw_QC_Result 也可以換成那個
+            escapeCSV(record.Confidence_Level),
+            escapeCSV(record.QC_Method),
+            escapeCSV(record.QC_Reason)
+        ].join(",");
+    });
+
+    // 5. 組合：加入 \uFEFF (BOM) 讓微軟 Excel 認得 UTF-8 中文，不會變亂碼！
+    const csvContent = "\uFEFF" + headers.join(",") + "\n" + csvRows.join("\n");
+
+    // 6. 建立虛擬下載連結並觸發點擊
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    
+    // 產生動態檔名 (例如：QC異常報案清單_2026-06-17.csv)
+    const todayStr = new Date().toISOString().split('T')[0];
+    link.setAttribute("href", url);
+    link.setAttribute("download", `QC異常報案清單_${todayStr}.csv`);
+    
+    // 偷偷加進網頁 -> 點擊下載 -> 拔除
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
