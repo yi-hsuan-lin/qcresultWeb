@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 18030,
+        "total_abnormal_records": 18034,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-19 06:57:01"
+        "generated_at": "2026-06-19 07:07:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -217030,6 +217030,54 @@
             "Confidence_Level": "B",
             "QC_Method": "R10未通過克利金檢核(估計誤差累積機率超出99.95%)累積於後個案",
             "QC_Reason": "R10未通過克利金檢核(估計誤差累積機率超出99.95%)累積於後個案；R60通過檢核"
+        },
+        {
+            "ID": "46738",
+            "ObsTime": "2026-06-19T06:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 74.0,
+            "Radio_id": "D77",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46740",
+            "ObsTime": "2026-06-19T06:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 79.0,
+            "Radio_id": "D75",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46786",
+            "ObsTime": "2026-06-19T06:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D79",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-19T06:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
         }
     ]
 }
