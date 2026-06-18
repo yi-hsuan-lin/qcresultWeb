@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 17465,
+        "total_abnormal_records": 17469,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-18 17:07:03"
+        "generated_at": "2026-06-18 17:17:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -210239,6 +210239,54 @@
         {
             "ID": "CAW01",
             "ObsTime": "2026-06-18T16:50:00+08:00",
+            "met_date": "2026-06-18",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "C61",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-18T17:00:00+08:00",
+            "met_date": "2026-06-18",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "01A44",
+            "ObsTime": "2026-06-18T17:00:00+08:00",
+            "met_date": "2026-06-18",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=11.0, 60min=41.0",
+            "Radio_id": "W1N",
+            "QC_Level": "0,62",
+            "Confidence_Level": "B",
+            "QC_Method": "R10通過、R60未通過檢核(累積於後)",
+            "QC_Reason": "R10通過、R60未通過檢核(累積於後)"
+        },
+        {
+            "ID": "C2M9A",
+            "ObsTime": "2026-06-18T17:00:00+08:00",
+            "met_date": "2026-06-18",
+            "ObsItem": "WD",
+            "Obsvalue": 30.0,
+            "Radio_id": "F7Z",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "CAW01",
+            "ObsTime": "2026-06-18T17:00:00+08:00",
             "met_date": "2026-06-18",
             "ObsItem": "WD",
             "Obsvalue": 990.0,
