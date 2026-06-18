@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 17149,
+        "total_abnormal_records": 17153,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-18 10:57:01"
+        "generated_at": "2026-06-18 11:07:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -206451,6 +206451,54 @@
             "ObsItem": "WD",
             "Obsvalue": 990.0,
             "Radio_id": "F39",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "C0AC8",
+            "ObsTime": "2026-06-18T10:50:00+08:00",
+            "met_date": "2026-06-18",
+            "ObsItem": "RH",
+            "Obsvalue": 99.0,
+            "Radio_id": "LV",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0R80",
+            "ObsTime": "2026-06-18T10:50:00+08:00",
+            "met_date": "2026-06-18",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "OV",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-18T10:50:00+08:00",
+            "met_date": "2026-06-18",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "46765",
+            "ObsTime": "2026-06-18T10:50:00+08:00",
+            "met_date": "2026-06-18",
+            "ObsItem": "WD",
+            "Obsvalue": 0.0,
+            "Radio_id": "C12",
             "QC_Level": "90",
             "Confidence_Level": "C",
             "QC_Method": "物理性",
