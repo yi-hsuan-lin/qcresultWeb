@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 17806,
+        "total_abnormal_records": 17808,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-19 01:07:02"
+        "generated_at": "2026-06-19 01:17:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -214334,6 +214334,30 @@
         {
             "ID": "C0V66",
             "ObsTime": "2026-06-19T00:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "C0AH7",
+            "ObsTime": "2026-06-19T01:00:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 95.0,
+            "Radio_id": "9C",
+            "QC_Level": "0,42",
+            "Confidence_Level": "B",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率落在99.95%~99.97%信心水準內"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-19T01:00:00+08:00",
             "met_date": "2026-06-19",
             "ObsItem": "RH",
             "Obsvalue": 0.0,
