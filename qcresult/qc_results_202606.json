@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 18698,
+        "total_abnormal_records": 18703,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-19 21:57:02"
+        "generated_at": "2026-06-19 22:07:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -225046,6 +225046,66 @@
             "Confidence_Level": "C",
             "QC_Method": "零雨量個案",
             "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "C0R56",
+            "ObsTime": "2026-06-19T21:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 78.0,
+            "Radio_id": "XX",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0UB8",
+            "ObsTime": "2026-06-19T21:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 92.0,
+            "Radio_id": "5I",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-19T21:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "C2FB5",
+            "ObsTime": "2026-06-19T21:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 96.0,
+            "Radio_id": "FB7",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAP07",
+            "ObsTime": "2026-06-19T21:50:00+08:00",
+            "met_date": "2026-06-19",
+            "ObsItem": "RH",
+            "Obsvalue": 93.0,
+            "Radio_id": "C63",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
         }
     ]
 }
