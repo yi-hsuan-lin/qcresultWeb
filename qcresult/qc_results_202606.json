@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 19621,
+        "total_abnormal_records": 19622,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-20 21:27:02"
+        "generated_at": "2026-06-20 21:37:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -236125,6 +236125,18 @@
             "Confidence_Level": "C",
             "QC_Method": "零雨量個案",
             "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-20T21:20:00+08:00",
+            "met_date": "2026-06-20",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
         }
     ]
 }
