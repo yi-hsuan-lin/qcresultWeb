@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 21012,
+        "total_abnormal_records": 21015,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-22 06:57:01"
+        "generated_at": "2026-06-22 07:07:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -79,7 +79,7 @@
             "total_stations_count": 1314
         },
         "2026-06-22": {
-            "total_stations_count": 1316
+            "total_stations_count": 1317
         }
     },
     "records": [
@@ -252823,6 +252823,42 @@
             "Confidence_Level": "C",
             "QC_Method": "零雨量個案",
             "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46786",
+            "ObsTime": "2026-06-22T06:50:00+08:00",
+            "met_date": "2026-06-22",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D79",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "46787",
+            "ObsTime": "2026-06-22T06:50:00+08:00",
+            "met_date": "2026-06-22",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D80",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-22T06:50:00+08:00",
+            "met_date": "2026-06-22",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
         }
     ]
 }
