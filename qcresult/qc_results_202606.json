@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1319,
-        "total_abnormal_records": 20300,
+        "total_abnormal_records": 20309,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-21 14:37:01"
+        "generated_at": "2026-06-21 14:47:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -244276,6 +244276,114 @@
             "Confidence_Level": "C",
             "QC_Method": "合理範圍",
             "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "C0AC8",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RH",
+            "Obsvalue": 98.0,
+            "Radio_id": "LV",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0R80",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "OV",
+            "QC_Level": "0,52",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率落在99.97%~99.99%信心水準內"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "CAG05",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RH",
+            "Obsvalue": 69.0,
+            "Radio_id": "G18",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAP04",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RH",
+            "Obsvalue": 82.0,
+            "Radio_id": "G66",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46799",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "C48",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "CAW01",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "C61",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46789",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "D82",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "01A44",
+            "ObsTime": "2026-06-21T14:30:00+08:00",
+            "met_date": "2026-06-21",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=60.0, 60min=60.0",
+            "Radio_id": "W1N",
+            "QC_Level": "60,62",
+            "Confidence_Level": "C",
+            "QC_Method": "R10未通過合理範圍檢核；R60未通過檢核(累積於後)",
+            "QC_Reason": "R10未通過合理範圍檢核；R60未通過檢核(累積於後)"
         }
     ]
 }
