@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1320,
-        "total_abnormal_records": 21685,
+        "total_abnormal_records": 21691,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-23 01:47:01"
+        "generated_at": "2026-06-23 01:57:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -82,7 +82,7 @@
             "total_stations_count": 1320
         },
         "2026-06-23": {
-            "total_stations_count": 1317
+            "total_stations_count": 1318
         }
     },
     "records": [
@@ -260894,6 +260894,78 @@
         {
             "ID": "46736",
             "ObsTime": "2026-06-23T01:30:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "D83",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "C0B06",
+            "ObsTime": "2026-06-23T01:40:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RH",
+            "Obsvalue": 88.0,
+            "Radio_id": "N7",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0E86",
+            "ObsTime": "2026-06-23T01:40:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RH",
+            "Obsvalue": 6.0,
+            "Radio_id": "HN",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "C0V66",
+            "ObsTime": "2026-06-23T01:40:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "XC",
+            "QC_Level": "60",
+            "Confidence_Level": "C",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "超出合理範圍門檻"
+        },
+        {
+            "ID": "C2W03",
+            "ObsTime": "2026-06-23T01:40:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "C32",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46711",
+            "ObsTime": "2026-06-23T01:40:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "C47",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46736",
+            "ObsTime": "2026-06-23T01:40:00+08:00",
             "met_date": "2026-06-23",
             "ObsItem": "RAIN",
             "Obsvalue": "10min=0.0, 60min=0.0",
