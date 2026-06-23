@@ -1,7 +1,7 @@
 {
     "summary": {
-        "total_active_stations": 1320,
-        "total_abnormal_records": 22650,
+        "total_active_stations": 1321,
+        "total_abnormal_records": 22655,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-23 16:57:01"
+        "generated_at": "2026-06-23 17:07:03"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -82,7 +82,7 @@
             "total_stations_count": 1320
         },
         "2026-06-23": {
-            "total_stations_count": 1320
+            "total_stations_count": 1321
         }
     },
     "records": [
@@ -272482,6 +272482,66 @@
             "Confidence_Level": "C",
             "QC_Method": "零雨量個案",
             "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46786",
+            "ObsTime": "2026-06-23T16:50:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D79",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0R80",
+            "ObsTime": "2026-06-23T16:50:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "OV",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0R84",
+            "ObsTime": "2026-06-23T16:50:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "OR",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "A0A01",
+            "ObsTime": "2026-06-23T16:50:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "E04",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "E2H36",
+            "ObsTime": "2026-06-23T16:50:00+08:00",
+            "met_date": "2026-06-23",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "F30",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
         }
     ]
 }
