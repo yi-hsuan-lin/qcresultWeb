@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 23937,
+        "total_abnormal_records": 23939,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-24 22:27:01"
+        "generated_at": "2026-06-24 22:37:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -287925,6 +287925,30 @@
             "ObsItem": "RH",
             "Obsvalue": 90.0,
             "Radio_id": "G66",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46789",
+            "ObsTime": "2026-06-24T22:20:00+08:00",
+            "met_date": "2026-06-24",
+            "ObsItem": "RH",
+            "Obsvalue": 98.0,
+            "Radio_id": "D82",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0W24",
+            "ObsTime": "2026-06-24T22:20:00+08:00",
+            "met_date": "2026-06-24",
+            "ObsItem": "RH",
+            "Obsvalue": 90.0,
+            "Radio_id": "6V",
             "QC_Level": "0",
             "Confidence_Level": "B",
             "QC_Method": "合理範圍",
