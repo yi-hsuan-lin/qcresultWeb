@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 24991,
+        "total_abnormal_records": 24996,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-26 01:57:02"
+        "generated_at": "2026-06-26 02:07:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -300583,6 +300583,66 @@
             "Confidence_Level": "B",
             "QC_Method": "R10未通過克利金檢核(估計誤差累積機率落在99.95%~99.97%信心水準內)零雨量個案",
             "QC_Reason": "R10未通過克利金檢核(估計誤差累積機率落在99.95%~99.97%信心水準內)零雨量個案；R60通過檢核"
+        },
+        {
+            "ID": "C0V84",
+            "ObsTime": "2026-06-26T01:50:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RH",
+            "Obsvalue": 95.0,
+            "Radio_id": "6A",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAF95",
+            "ObsTime": "2026-06-26T01:50:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RH",
+            "Obsvalue": 95.0,
+            "Radio_id": "G1B",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAP04",
+            "ObsTime": "2026-06-26T01:50:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "G66",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0W20",
+            "ObsTime": "2026-06-26T01:50:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=6.0, 60min=163.0",
+            "Radio_id": "6N",
+            "QC_Level": "0,62",
+            "Confidence_Level": "B",
+            "QC_Method": "R10通過、R60未通過檢核(累積於後)",
+            "QC_Reason": "R10通過、R60未通過檢核(累積於後)"
+        },
+        {
+            "ID": "A1AD4",
+            "ObsTime": "2026-06-26T01:50:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=19.5",
+            "Radio_id": "T16",
+            "QC_Level": "0,31,31,0",
+            "Confidence_Level": "B",
+            "QC_Method": "R10未通過克利金檢核(估計誤差累積機率超出99.95%)零雨量個案",
+            "QC_Reason": "R10未通過克利金檢核(估計誤差累積機率超出99.95%)零雨量個案；R60通過檢核"
         }
     ]
 }
