@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 25650,
+        "total_abnormal_records": 25657,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-26 15:47:02"
+        "generated_at": "2026-06-26 15:57:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -308491,6 +308491,90 @@
             "Confidence_Level": "B",
             "QC_Method": "合理範圍",
             "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46738",
+            "ObsTime": "2026-06-26T15:40:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "D77",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46786",
+            "ObsTime": "2026-06-26T15:40:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D79",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0D56",
+            "ObsTime": "2026-06-26T15:40:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "H7",
+            "QC_Level": "-99",
+            "Confidence_Level": "C",
+            "QC_Method": "無觀測資料",
+            "QC_Reason": "無觀測資料"
+        },
+        {
+            "ID": "C0R16",
+            "ObsTime": "2026-06-26T15:40:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RH",
+            "Obsvalue": 95.0,
+            "Radio_id": "WT",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAP04",
+            "ObsTime": "2026-06-26T15:40:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "RH",
+            "Obsvalue": 96.0,
+            "Radio_id": "G66",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAE10",
+            "ObsTime": "2026-06-26T15:40:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "G86",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "E2H36",
+            "ObsTime": "2026-06-26T15:40:00+08:00",
+            "met_date": "2026-06-26",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "F30",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
         }
     ]
 }
