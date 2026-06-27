@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 26746,
+        "total_abnormal_records": 26750,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-27 17:27:02"
+        "generated_at": "2026-06-27 17:37:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -321646,6 +321646,54 @@
             "Confidence_Level": "C",
             "QC_Method": "零雨量個案",
             "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46786",
+            "ObsTime": "2026-06-27T17:20:00+08:00",
+            "met_date": "2026-06-27",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D79",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0F9M",
+            "ObsTime": "2026-06-27T17:20:00+08:00",
+            "met_date": "2026-06-27",
+            "ObsItem": "RH",
+            "Obsvalue": 91.0,
+            "Radio_id": "I5",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAG05",
+            "ObsTime": "2026-06-27T17:20:00+08:00",
+            "met_date": "2026-06-27",
+            "ObsItem": "RH",
+            "Obsvalue": 91.0,
+            "Radio_id": "G18",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "A1AA8",
+            "ObsTime": "2026-06-27T17:20:00+08:00",
+            "met_date": "2026-06-27",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "T0H",
+            "QC_Level": "0,0,31",
+            "Confidence_Level": "B",
+            "QC_Method": "R10通過、R60未通過檢核(零雨量)",
+            "QC_Reason": "R10通過、R60未通過檢核(零雨量)"
         }
     ]
 }
