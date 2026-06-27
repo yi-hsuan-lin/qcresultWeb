@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 26803,
+        "total_abnormal_records": 26807,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-27 19:07:02"
+        "generated_at": "2026-06-27 19:17:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -322330,6 +322330,54 @@
             "Confidence_Level": "B",
             "QC_Method": "合理範圍",
             "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAE09",
+            "ObsTime": "2026-06-27T19:00:00+08:00",
+            "met_date": "2026-06-27",
+            "ObsItem": "RH",
+            "Obsvalue": 99.0,
+            "Radio_id": "G23",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46749",
+            "ObsTime": "2026-06-27T19:00:00+08:00",
+            "met_date": "2026-06-27",
+            "ObsItem": "WD",
+            "Obsvalue": 0.0,
+            "Radio_id": "C09",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "72Q01",
+            "ObsTime": "2026-06-27T19:00:00+08:00",
+            "met_date": "2026-06-27",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "F09",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "82H32",
+            "ObsTime": "2026-06-27T19:00:00+08:00",
+            "met_date": "2026-06-27",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "F21",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
         }
     ]
 }
