@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 28022,
+        "total_abnormal_records": 28023,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-29 01:57:02"
+        "generated_at": "2026-06-29 02:07:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -100,7 +100,7 @@
             "total_stations_count": 1320
         },
         "2026-06-29": {
-            "total_stations_count": 1316
+            "total_stations_count": 1317
         }
     },
     "records": [
@@ -336959,6 +336959,18 @@
             "met_date": "2026-06-29",
             "ObsItem": "WD",
             "Obsvalue": 360.0,
+            "Radio_id": "F66",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "C2M96",
+            "ObsTime": "2026-06-29T01:50:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "WD",
+            "Obsvalue": 10.0,
             "Radio_id": "F66",
             "QC_Level": "90",
             "Confidence_Level": "C",
