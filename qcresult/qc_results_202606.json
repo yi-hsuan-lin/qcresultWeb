@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 27351,
+        "total_abnormal_records": 27354,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-28 11:07:02"
+        "generated_at": "2026-06-28 11:17:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -328905,6 +328905,42 @@
             "ObsItem": "RH",
             "Obsvalue": 82.0,
             "Radio_id": "G66",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46786",
+            "ObsTime": "2026-06-28T11:00:00+08:00",
+            "met_date": "2026-06-28",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D79",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0R80",
+            "ObsTime": "2026-06-28T11:00:00+08:00",
+            "met_date": "2026-06-28",
+            "ObsItem": "RH",
+            "Obsvalue": 100.0,
+            "Radio_id": "OV",
+            "QC_Level": "0,42",
+            "Confidence_Level": "B",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率落在99.95%~99.97%信心水準內"
+        },
+        {
+            "ID": "CAN07",
+            "ObsTime": "2026-06-28T11:00:00+08:00",
+            "met_date": "2026-06-28",
+            "ObsItem": "RH",
+            "Obsvalue": 87.0,
+            "Radio_id": "G72",
             "QC_Level": "0",
             "Confidence_Level": "B",
             "QC_Method": "合理範圍",
