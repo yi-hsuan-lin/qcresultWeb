@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 29025,
+        "total_abnormal_records": 29026,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-30 06:07:02"
+        "generated_at": "2026-06-30 06:17:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -349003,6 +349003,18 @@
             "Confidence_Level": "C",
             "QC_Method": "物理性",
             "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "81K58",
+            "ObsTime": "2026-06-30T06:00:00+08:00",
+            "met_date": "2026-06-30",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=47.5",
+            "Radio_id": "S1R",
+            "QC_Level": "0,0,62",
+            "Confidence_Level": "B",
+            "QC_Method": "R10通過、R60未通過檢核(累積於後)",
+            "QC_Reason": "R10通過、R60未通過檢核(累積於後)"
         }
     ]
 }
