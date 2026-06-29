@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 28837,
+        "total_abnormal_records": 28843,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-29 22:27:01"
+        "generated_at": "2026-06-29 22:37:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -346740,6 +346740,78 @@
             "ObsItem": "RH",
             "Obsvalue": 96.0,
             "Radio_id": "G05",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAF02",
+            "ObsTime": "2026-06-29T22:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 91.0,
+            "Radio_id": "G11",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAF03",
+            "ObsTime": "2026-06-29T22:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 96.0,
+            "Radio_id": "G12",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAF09",
+            "ObsTime": "2026-06-29T22:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 99.0,
+            "Radio_id": "G29",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAF96",
+            "ObsTime": "2026-06-29T22:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 86.0,
+            "Radio_id": "G1C",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAG05",
+            "ObsTime": "2026-06-29T22:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 90.0,
+            "Radio_id": "G18",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAG06",
+            "ObsTime": "2026-06-29T22:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 91.0,
+            "Radio_id": "G27",
             "QC_Level": "0",
             "Confidence_Level": "B",
             "QC_Method": "合理範圍",
