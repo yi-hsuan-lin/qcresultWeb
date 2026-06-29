@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 28472,
+        "total_abnormal_records": 28476,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-29 16:37:01"
+        "generated_at": "2026-06-29 16:47:02"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -342360,6 +342360,54 @@
             "ObsItem": "RH",
             "Obsvalue": 100.0,
             "Radio_id": "G21",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46786",
+            "ObsTime": "2026-06-29T16:30:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D79",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "C0R93",
+            "ObsTime": "2026-06-29T16:30:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 60.0,
+            "Radio_id": "VX",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAF02",
+            "ObsTime": "2026-06-29T16:30:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 72.0,
+            "Radio_id": "G11",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAG03",
+            "ObsTime": "2026-06-29T16:30:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 75.0,
+            "Radio_id": "G14",
             "QC_Level": "0",
             "Confidence_Level": "B",
             "QC_Method": "合理範圍",
