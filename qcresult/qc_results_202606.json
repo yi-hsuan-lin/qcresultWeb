@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1322,
-        "total_abnormal_records": 28494,
+        "total_abnormal_records": 28497,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-06-29 17:27:01"
+        "generated_at": "2026-06-29 17:37:01"
     },
     "daily_snapshots": {
         "2026-06-10": {
@@ -342628,6 +342628,42 @@
             "Confidence_Level": "B",
             "QC_Method": "R10未通過克利金檢核(估計誤差累積機率落在99.95%~99.97%信心水準內)累積於後個案",
             "QC_Reason": "R10未通過克利金檢核(估計誤差累積機率落在99.95%~99.97%信心水準內)累積於後個案；R60通過檢核"
+        },
+        {
+            "ID": "46786",
+            "ObsTime": "2026-06-29T17:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "RH",
+            "Obsvalue": 0.0,
+            "Radio_id": "D79",
+            "QC_Level": "0,62",
+            "Confidence_Level": "C",
+            "QC_Method": "空間",
+            "QC_Reason": "估計誤差累積機率超出99.95%信心水準"
+        },
+        {
+            "ID": "82H84",
+            "ObsTime": "2026-06-29T17:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "F20",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "U2HA4",
+            "ObsTime": "2026-06-29T17:20:00+08:00",
+            "met_date": "2026-06-29",
+            "ObsItem": "WD",
+            "Obsvalue": 990.0,
+            "Radio_id": "F33",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
         }
     ]
 }
