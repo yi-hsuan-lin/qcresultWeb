@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1317,
-        "total_abnormal_records": 209,
+        "total_abnormal_records": 210,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-07-01 07:07:01"
+        "generated_at": "2026-07-01 07:17:02"
     },
     "daily_snapshots": {
         "2026-07-01": {
@@ -2523,6 +2523,18 @@
             "ObsItem": "RH",
             "Obsvalue": 78.0,
             "Radio_id": "G24",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0G62",
+            "ObsTime": "2026-07-01T07:00:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RH",
+            "Obsvalue": 99.0,
+            "Radio_id": "PM",
             "QC_Level": "0",
             "Confidence_Level": "B",
             "QC_Method": "合理範圍",
