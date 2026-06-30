@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1317,
-        "total_abnormal_records": 181,
+        "total_abnormal_records": 182,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-07-01 05:57:01"
+        "generated_at": "2026-07-01 06:07:01"
     },
     "daily_snapshots": {
         "2026-07-01": {
@@ -2191,6 +2191,18 @@
             "Confidence_Level": "C",
             "QC_Method": "物理性",
             "QC_Reason": "物理性檢核未通過"
+        },
+        {
+            "ID": "C0V53",
+            "ObsTime": "2026-07-01T05:50:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RH",
+            "Obsvalue": 92.0,
+            "Radio_id": "UY",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
         }
     ]
 }
