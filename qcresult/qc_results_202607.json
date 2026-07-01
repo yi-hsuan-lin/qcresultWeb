@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1317,
-        "total_abnormal_records": 252,
+        "total_abnormal_records": 261,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-07-01 08:37:01"
+        "generated_at": "2026-07-01 08:47:01"
     },
     "daily_snapshots": {
         "2026-07-01": {
@@ -3043,6 +3043,114 @@
             "Confidence_Level": "B",
             "QC_Method": "合理範圍",
             "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "12Q98",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RH",
+            "Obsvalue": 83.0,
+            "Radio_id": "F42",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0B06",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RH",
+            "Obsvalue": 75.0,
+            "Radio_id": "N7",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0G62",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RH",
+            "Obsvalue": 82.0,
+            "Radio_id": "PM",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0U96",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RH",
+            "Obsvalue": 65.0,
+            "Radio_id": "GB",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAE08",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RH",
+            "Obsvalue": 76.0,
+            "Radio_id": "G22",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAN07",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RH",
+            "Obsvalue": 78.0,
+            "Radio_id": "G72",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C2W03",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "C32",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46711",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "C47",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46736",
+            "ObsTime": "2026-07-01T08:30:00+08:00",
+            "met_date": "2026-07-01",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "D83",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
         }
     ]
 }
