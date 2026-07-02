@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1320,
-        "total_abnormal_records": 2008,
+        "total_abnormal_records": 2022,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-07-02 20:47:01"
+        "generated_at": "2026-07-02 20:57:01"
     },
     "daily_snapshots": {
         "2026-07-01": {
@@ -24110,6 +24110,174 @@
         {
             "ID": "46736",
             "ObsTime": "2026-07-02T20:30:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "D83",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "C0B01",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 90.0,
+            "Radio_id": "NU",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0F9L",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 70.0,
+            "Radio_id": "I4",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0I37",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 99.0,
+            "Radio_id": "JI",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0I42",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 82.0,
+            "Radio_id": "JJ",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0R58",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 71.0,
+            "Radio_id": "XR",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0R59",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 80.0,
+            "Radio_id": "VS",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0V44",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 81.0,
+            "Radio_id": "WQ",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C2H9X",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 97.0,
+            "Radio_id": "F7V",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAG05",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 79.0,
+            "Radio_id": "G18",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAL01",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 96.0,
+            "Radio_id": "G05",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAP04",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RH",
+            "Obsvalue": 79.0,
+            "Radio_id": "G66",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C2W03",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "C32",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46711",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
+            "met_date": "2026-07-02",
+            "ObsItem": "RAIN",
+            "Obsvalue": "10min=0.0, 60min=0.0",
+            "Radio_id": "C47",
+            "QC_Level": "0,31,-1,0",
+            "Confidence_Level": "C",
+            "QC_Method": "零雨量個案",
+            "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "46736",
+            "ObsTime": "2026-07-02T20:40:00+08:00",
             "met_date": "2026-07-02",
             "ObsItem": "RAIN",
             "Obsvalue": "10min=0.0, 60min=0.0",
