@@ -1,7 +1,7 @@
 {
     "summary": {
         "total_active_stations": 1320,
-        "total_abnormal_records": 3013,
+        "total_abnormal_records": 3017,
         "monitored_items": [
             "Pres",
             "RH",
@@ -12,7 +12,7 @@
             "GWD",
             "GWS"
         ],
-        "generated_at": "2026-07-03 06:57:02"
+        "generated_at": "2026-07-03 07:07:01"
     },
     "daily_snapshots": {
         "2026-07-01": {
@@ -36181,6 +36181,54 @@
             "Confidence_Level": "C",
             "QC_Method": "零雨量個案",
             "QC_Reason": "R10為零雨量個案，但無法進行克利金檢核；R60通過檢核"
+        },
+        {
+            "ID": "C0R52",
+            "ObsTime": "2026-07-03T06:50:00+08:00",
+            "met_date": "2026-07-03",
+            "ObsItem": "RH",
+            "Obsvalue": 87.0,
+            "Radio_id": "XY",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "C0S98",
+            "ObsTime": "2026-07-03T06:50:00+08:00",
+            "met_date": "2026-07-03",
+            "ObsItem": "RH",
+            "Obsvalue": 82.0,
+            "Radio_id": "O7",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "CAE05",
+            "ObsTime": "2026-07-03T06:50:00+08:00",
+            "met_date": "2026-07-03",
+            "ObsItem": "RH",
+            "Obsvalue": 81.0,
+            "Radio_id": "G10",
+            "QC_Level": "0",
+            "Confidence_Level": "B",
+            "QC_Method": "合理範圍",
+            "QC_Reason": "僅通過合理範圍檢核，無法執行空間及時間檢核"
+        },
+        {
+            "ID": "46693",
+            "ObsTime": "2026-07-03T06:50:00+08:00",
+            "met_date": "2026-07-03",
+            "ObsItem": "WD",
+            "Obsvalue": 0.0,
+            "Radio_id": "C05",
+            "QC_Level": "90",
+            "Confidence_Level": "C",
+            "QC_Method": "物理性",
+            "QC_Reason": "物理性檢核未通過"
         }
     ]
 }
